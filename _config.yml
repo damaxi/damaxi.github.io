@@ -10,11 +10,12 @@ title: Daniel's Blog
 email: daniel.maksymow@tuta.io
 description:
   Setting goals is the first step in turning the invisible into the visible. ~ Tony Robbins.
-# baseurl: "/blog" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "/" # the base hostname & protocol for your site
 # twitter_username: jekyllrb
 github_username:  damaxi
 
+source: ./
 destination: ./_site
 
 # Build settings
