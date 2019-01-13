@@ -2,7 +2,7 @@
 layout: post
 title:  "Logging exercise"
 date:   2018-12-18 09:12:00 +0100
-categories: personal notes
+categories: programming notes
 ---
 Last time I have found a **C** language pattern for logging which roughly looks like that.
 For given sample external interface:
