@@ -7,6 +7,7 @@ categories: programming notes
 At the beginning I want tell you that I don't expect very proffesional code here. Rather it is working example
 how we can achieve a simple safe container which hold static storage overwritten by random data.
 A small remind how I actually understand a type erasure idea.
+
 {% highlight c++ %}
 class var {
 public:
@@ -33,6 +34,7 @@ private:
     inner_base::ptr m_inner;
 };
 {% endhighlight %}
+
 The idea behind presented implementation is to hide type of assigned variable in inner class. And using inheritance
 get an access to base pointer which hold variable data. With that we are trying to get rid of instantiation main var class
 with certain type. To do that the inner storage class is used and templarized **operator=** where we store a new variable data.
@@ -40,6 +42,7 @@ The problem come when we want access to compile *unknown* type. And replace it a
 That coerce type earase to live.
 ---
 Here I want to paste my own version of **any** implementation without use of **virtual** functions.
+
 {% highlight c++ %}
 namespace stl {
 
