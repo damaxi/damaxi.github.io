@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Trying to implement same STL algorithm in different manners"
+title:  "How I tried to implement same STL algorithm on different ways"
 date:   2019-02-21 20:28:00 +0100
 categories: programming notes
 ---
