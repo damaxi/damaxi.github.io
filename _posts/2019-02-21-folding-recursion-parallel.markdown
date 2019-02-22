@@ -29,10 +29,16 @@ For the last reason I decided to try recursive solution and look closer for the 
 
 {% highlight c++ %}
 template <typename Iterator, typename UnaryPredicateFunction>
-bool any_of(Iterator begin, Iterator end, UnaryPredicateFunction predicate) {
+bool any_of_aux(Iterator begin, Iterator end, UnaryPredicateFunction predicate) {
     if (predicate(*begin)) return true;
-    else if (begin != end) return any_of(++begin, end, predicate);
+    else if (begin != end) return any_of_aux(++begin, end, predicate);
     else return false;
+}
+
+template <typename Iterator, typename UnaryPredicateFunction>
+bool any_of(Iterator begin, Iterator end, UnaryPredicateFunction predicate) {
+    if (begin == end) return false;
+    return any_of_aux(begin, end, predicate);
 }
 {% endhighlight %}
 
@@ -141,3 +147,26 @@ use a heavy predicate operation here to achieve any privileges of using threads.
 that's a future question.
 
 Thanks for reading this. If you read this post until the end :)
+
+----
+### Update
+I get some remarks, which I consider to fix:
+```
+groshart
+
+Your recursive implementation is seriously broken. The first line of code dereferences the begin iterator without testing if begin != end. This fails for an empty range or if the recursion reaches the end of the range.
+```
+And another one with whom I agree but I don't want remove it as VLA is still compiling extension in clang and gcc.
+```
+OmegaNaughtEquals1
+const int threads_num = std::thread::hardware_concurrency();
+std::thread pool[threads_num];
+std::thread::hardware_concurrency isn't constexpr, so this is a VLA which isn't even C++...
+```
+Regarding VLA I saw many discussions to use it or to not but that's not a topic here. Unfortunately he was right here:
+```
+clang++ -g -std=c++17 -Wall -Werror -Wvla -pthread higher_order_func.cpp 
+higher_order_func.cpp:35:25: error: variable length array used [-Werror,-Wvla]
+std::thread pool[threads_num];
+```
+Here I give a link how to check in runtime number of threads [POSIX _SC_NPROCESSORS_CONF](http://refspecs.linuxbase.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/baselib-sysconf.html) in Linux.
