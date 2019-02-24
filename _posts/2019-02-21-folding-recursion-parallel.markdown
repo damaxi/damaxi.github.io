@@ -40,6 +40,17 @@ bool any_of(Iterator begin, Iterator end, UnaryPredicateFunction predicate) {
     if (begin == end) return false;
     return any_of_aux(begin, end, predicate);
 }
+
+/* Fixing bug (community proposal) in last iteration */
+template <typename Iterator, typename UnaryPredicateFunction>
+bool any_of(Iterator begin, Iterator end, UnaryPredicateFunction predicate)
+{
+    if (begin == end) {
+        return false;
+    }
+    if (predicate(*begin)) return true;
+    return any_of(++begin, end, predicate);
+}
 {% endhighlight %}
 
 Now we entirely get rid of loops here. We have to pay attention here, to properly implement recursive conditions to not
