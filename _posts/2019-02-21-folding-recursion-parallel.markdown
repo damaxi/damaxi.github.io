@@ -41,7 +41,7 @@ bool any_of(Iterator begin, Iterator end, UnaryPredicateFunction predicate) {
     return any_of_aux(begin, end, predicate);
 }
 
-/* Fixing bug (community proposal) in last iteration */
+/* Fixing bug (community proposal)  If the recursion reaches the last element of the range then the call any_of_aux(++begin, end, predicate); is the same as calling any_of_aux(end, end, predicate); and your code then dereferences the first iterator. */
 template <typename Iterator, typename UnaryPredicateFunction>
 bool any_of(Iterator begin, Iterator end, UnaryPredicateFunction predicate)
 {
