@@ -79,6 +79,10 @@ Thanks for stack [same implementation](https://stackoverflow.com/questions/57949
 But.... Why do we need to read a whole file just to print a few lines from the end? I just started to think if I can improve performance a little more here. I wind thorough some ideas like counting new lines when unexpectedly found something: *ate seek to the end of stream immediately after open*.
 It appears that we can implement it a little bit differently. First jump to the end and then start to remmember line by line until the n-last buffer will be filled. Here how it comes:
 {% highlight c++ %}
+std::ifstream hndl(filename, std::ios::in | std::ios::ate);
+
+...
+
 void print_last_lines(std::ifstream& stream, int lines)
 {
     std::stack<char> last_lines; 
