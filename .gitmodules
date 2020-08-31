@@ -1,0 +1,13 @@
+[submodule "themes/hugo-paper"]
+	path = themes/hugo-paper
+	url = https://github.com/nanxiaobei/hugo-paper/
+[submodule "public"]
+	path = public
+	url = https://github.com/damaxi/damaxi.github.io.git
+	branch = master
+[submodule "themes/hugo-theme-sam"]
+	path = themes/hugo-theme-sam
+	url = https://github.com/victoriadrake/hugo-theme-sam
+[submodule "themes/hugo-theme-cactus"]
+	path = themes/hugo-theme-cactus
+	url = https://github.com/monkeyWzr/hugo-theme-cactus

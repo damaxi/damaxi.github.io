@@ -1,0 +1,18 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Daniel's Blog"
+theme = "hugo-theme-cactus"
+
+[menu]
+
+[[menu.main]]
+        identifier = "about"
+        name = "About Me"
+        url = "/about/"
+        weight = -100
+
+[[menu.main]]
+        identifier = "posts"
+        name = "Posts"
+        url = "posts"
+        weight = -110
