@@ -14,5 +14,5 @@ theme = "hugo-theme-cactus"
 [[menu.main]]
         identifier = "posts"
         name = "Posts"
-        url = "posts"
+        url = "/posts/"
         weight = -110
