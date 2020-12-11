@@ -3,12 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/posts/about_blog/</loc>
-    <lastmod>2020-08-31T21:42:26+02:00</lastmod>
+    <loc>/posts/creating_minimal_linux_test_environment/</loc>
+    <lastmod>2020-12-06T20:29:49+01:00</lastmod>
   </url>
   
   <url>
     <loc>/posts/</loc>
+    <lastmod>2020-12-06T20:29:49+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/about_blog/</loc>
     <lastmod>2020-08-31T21:42:26+02:00</lastmod>
   </url>
   
