@@ -6,4 +6,19 @@ draft: false
 
 That's the first test blog post. I decided to reuse an already popular static page generator called Hugo. It is written in Go and it was quite easy to dive into without any experience in Go.
 
+### Useful Hugo commands
+- run server and build draft posts
+```
+hugo server -D
+```
+- create new post in content directory
+```
+hugo create posts/new_post.md
+```
+
+- to build static page into *public/* directory
+```
+hugo -D
+```
+
 Enjoy!
